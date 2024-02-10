@@ -1,5 +1,7 @@
+import 'package:diabetes/views/add_appointments.dart';
 import 'package:diabetes/views/home_page.dart';
 import 'package:diabetes/views/profile_screen.dart';
+import 'package:diabetes/views/show_appintment.dart';
 import 'package:diabetes/views/social_screen.dart';
 import 'package:diabetes/views/barcode.dart';
 import 'package:flutter/material.dart';
@@ -73,7 +75,7 @@ class _HomeState extends State<Home> {
                       minWidth: 40,
                       onPressed: () {
                         setState(() {
-                          currentScreen =  Container();
+                          currentScreen = Container();
                           _currentIndex = 0;
                         });
                       },
@@ -96,34 +98,6 @@ class _HomeState extends State<Home> {
                         ],
                       ),
                     ),
-                    // MaterialButton(
-                    //   minWidth: 40,
-                    //   onPressed: () {
-                    //     setState(() {
-                    //       currentScreen = Container();
-                    //       _currentIndex = 2;
-                    //     });
-                    //   },
-                    //   child: Column(
-                    //     mainAxisAlignment: MainAxisAlignment.center,
-                    //     children: [
-                    //       Icon(
-                    //         FontAwesomeIcons.plus,
-                    //         color:
-                    //             _currentIndex == 2 ? Colors.blue : Colors.grey,
-                    //       ),
-                    //       Text(
-                    //         'توقيتات',
-                    //         style: TextStyle(
-                    //           color: _currentIndex == 2
-                    //               ? Colors.blue
-                    //               : Colors.grey,
-                    //         ),
-                    //       ),
-                    //     ],
-                    //   ),
-                    // ),
-                    
                     MaterialButton(
                       minWidth: 40,
                       onPressed: () {
@@ -155,7 +129,7 @@ class _HomeState extends State<Home> {
                       minWidth: 40,
                       onPressed: () {
                         setState(() {
-                          currentScreen = ProfileScreen();
+                          currentScreen = const ShowAppointment();
                           _currentIndex = 3;
                         });
                       },
@@ -163,12 +137,12 @@ class _HomeState extends State<Home> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Icon(
-                            Icons.home,
+                            FontAwesomeIcons.plus,
                             color:
                                 _currentIndex == 3 ? Colors.blue : Colors.grey,
                           ),
                           Text(
-                            'بروفايل',
+                            'توقيتات',
                             style: TextStyle(
                               color: _currentIndex == 3
                                   ? Colors.blue

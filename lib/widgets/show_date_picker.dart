@@ -4,7 +4,7 @@ class MyDatePickerScreen extends StatefulWidget {
   @override
   _MyDatePickerScreenState createState() => _MyDatePickerScreenState();
 }
-
+Color? fillColor;
 class _MyDatePickerScreenState extends State<MyDatePickerScreen> {
   DateTime _selectedDate = DateTime.now();
 
@@ -36,10 +36,11 @@ class _MyDatePickerScreenState extends State<MyDatePickerScreen> {
         TextFormField(
           textAlign: TextAlign.center,
           onTap: () => _selectDate(context),
+          
           readOnly: true,
           decoration: const InputDecoration(
             filled: true,
-            fillColor: Colors.grey,
+            // fillColor: Colors.grey,
             hintText: 'أختر تاريخ',
             border: InputBorder.none,
             suffixIcon: Icon(Icons.date_range,color: Colors.black,)

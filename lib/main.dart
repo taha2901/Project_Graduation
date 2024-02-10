@@ -1,6 +1,7 @@
 import 'package:diabetes/page/Home.dart';
 import 'package:diabetes/theme/light_theme.dart';
 import 'package:diabetes/views/DoctorReservation.dart';
+import 'package:diabetes/views/add_appointments.dart';
 import 'package:diabetes/views/add_person.dart';
 import 'package:diabetes/views/chat_page.dart';
 import 'package:diabetes/views/home_page.dart';
@@ -46,7 +47,8 @@ class MyApp extends StatelessWidget {
         PersonalDetails.id: (context) => const PersonalDetails(),
         MedicalRecords.id: (context) => const MedicalRecords(),
         NotificationDetials.id: (context) => const NotificationDetials(),
-        StoreFavourities.id: (context) => const StoreFavourities()
+        StoreFavourities.id: (context) => const StoreFavourities(),
+        AddAppointments.id: (context) => const AddAppointments(),
       },
       debugShowCheckedModeBanner: false,
       home: ScreenOfPageView(),
