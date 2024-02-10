@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "989432751749",
+    "project_id": "the-chatapp-60d51",
+    "storage_bucket": "the-chatapp-60d51.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:989432751749:android:c2cd2910b7dbe062d4abec",
+        "android_client_info": {
+          "package_name": "com.example.diabetes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMxbgyKRU2MJdNP79ddX4eQPx2hKCI66I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:989432751749:android:329dfa5b01252996d4abec",
+        "android_client_info": {
+          "package_name": "com.example.scholar_chat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMxbgyKRU2MJdNP79ddX4eQPx2hKCI66I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
