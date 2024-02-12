@@ -4,11 +4,18 @@ import 'package:diabetes/widgets/custom_text_field_center_text.dart';
 import 'package:diabetes/widgets/show_date_picker.dart';
 import 'package:flutter/material.dart';
 
-class FormOfAppointmentMedicine extends StatelessWidget {
+class FormOfAppointmentMedicine extends StatefulWidget {
   const FormOfAppointmentMedicine({
     super.key,
   });
 
+  @override
+  State<FormOfAppointmentMedicine> createState() =>
+      _FormOfAppointmentMedicineState();
+}
+
+class _FormOfAppointmentMedicineState extends State<FormOfAppointmentMedicine> {
+  String? selectedOption;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -96,7 +103,14 @@ class FormOfAppointmentMedicine extends StatelessWidget {
                     ),
                     CustomTextField(
                       showBorder: false,
-                      hint: '10.00 am',
+                       hint: selectedOption == null ? '10.00 am' : null,
+                      suffixtext: selectedOption,
+                      dropdownItems: const ['9.00 am', '10.00 am', '11.00 am'],
+                      onDropdownChanged: (String? value) {
+                        setState(() {
+                          selectedOption = value; // تحديث القيمة المختارة
+                        });
+                      },
                     ),
                   ],
                 ),
