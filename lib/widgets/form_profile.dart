@@ -1,7 +1,6 @@
 import 'package:diabetes/views/add_person.dart';
 import 'package:diabetes/views/medical_recoer.dart';
 import 'package:diabetes/views/modify_personal_detail.dart';
-import 'package:diabetes/views/store_favourite.dart';
 import 'package:diabetes/widgets/custom_text_field.dart';
 import 'package:diabetes/widgets/notification_details.dart';
 import 'package:flutter/material.dart';

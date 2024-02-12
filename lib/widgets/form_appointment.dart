@@ -15,7 +15,10 @@ class FormOfAppointmentMedicine extends StatefulWidget {
 }
 
 class _FormOfAppointmentMedicineState extends State<FormOfAppointmentMedicine> {
-  String? selectedOption;
+  String? selectedOption1;
+  String? selectedOption2;
+  String? selectedOption3;
+  String? selectedOption4;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -35,13 +38,19 @@ class _FormOfAppointmentMedicineState extends State<FormOfAppointmentMedicine> {
               Expanded(
                 child: Column(
                   children: [
-                    const Text('الكميه'),
                     const SizedBox(
                       height: 16,
                     ),
                     CustomTextField(
                       showBorder: false,
-                      hint: '5.00 pm',
+                      hint: selectedOption3 == null ? 'الجرعه' : null,
+                      suffixtext: selectedOption3,
+                      dropdownItems: const ['قرص واحد', 'قرصين', 'ثلاثة اقراص'],
+                      onDropdownChanged: (String? value) {
+                        setState(() {
+                          selectedOption3 = value; // تحديث القيمة المختارة
+                        });
+                      },
                     ),
                   ],
                 ),
@@ -52,13 +61,19 @@ class _FormOfAppointmentMedicineState extends State<FormOfAppointmentMedicine> {
               Expanded(
                 child: Column(
                   children: [
-                    const Text('الجرعه'),
                     const SizedBox(
                       height: 16,
                     ),
                     CustomTextField(
                       showBorder: false,
-                      hint: 'قرص واحد',
+                      hint: selectedOption2 == null ? 'الكميه' : null,
+                      suffixtext: selectedOption2,
+                      dropdownItems: const ['قرص واحد', 'قرصين', 'ثلاثة اقراص'],
+                      onDropdownChanged: (String? value) {
+                        setState(() {
+                          selectedOption2 = value; // تحديث القيمة المختارة
+                        });
+                      },
                     ),
                   ],
                 ),
@@ -76,7 +91,6 @@ class _FormOfAppointmentMedicineState extends State<FormOfAppointmentMedicine> {
           const SizedBox(
             height: 16,
           ),
-          const Text('الوقت'),
           Row(
             children: [
               Expanded(
@@ -87,7 +101,14 @@ class _FormOfAppointmentMedicineState extends State<FormOfAppointmentMedicine> {
                     ),
                     CustomTextField(
                       showBorder: false,
-                      hint: 'بعد الغذاء',
+                      hint: selectedOption4 == null ? 'الموعد' : null,
+                      suffixtext: selectedOption4,
+                      dropdownItems: const ['قبل الفطار', 'بعدالفطار', 'قبل الغذاء','بعد الغذاء','قبل العشاء','بعد العشاء'],
+                      onDropdownChanged: (String? value) {
+                        setState(() {
+                          selectedOption4 = value; // تحديث القيمة المختارة
+                        });
+                      },
                     ),
                   ],
                 ),
@@ -103,12 +124,12 @@ class _FormOfAppointmentMedicineState extends State<FormOfAppointmentMedicine> {
                     ),
                     CustomTextField(
                       showBorder: false,
-                       hint: selectedOption == null ? '10.00 am' : null,
-                      suffixtext: selectedOption,
+                      hint: selectedOption1 == null ? '10.00 am' : null,
+                      suffixtext: selectedOption1,
                       dropdownItems: const ['9.00 am', '10.00 am', '11.00 am'],
                       onDropdownChanged: (String? value) {
                         setState(() {
-                          selectedOption = value; // تحديث القيمة المختارة
+                          selectedOption1 = value; // تحديث القيمة المختارة
                         });
                       },
                     ),

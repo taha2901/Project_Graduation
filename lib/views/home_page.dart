@@ -1,5 +1,6 @@
 import 'package:diabetes/views/chat_page.dart';
 import 'package:diabetes/views/profile_screen.dart';
+import 'package:diabetes/widgets/custom_app_bar_taha.dart';
 import 'package:diabetes/widgets/custom_icon.dart';
 import 'package:diabetes/widgets/custom_text_field_center_text.dart';
 import 'package:diabetes/widgets/easy_infinite_time_lines1.dart';
@@ -13,7 +14,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class HomePage extends StatefulWidget {
   const HomePage({
     super.key,
-     this.userEmaill,
+    this.userEmaill,
   });
   static String id = 'FollowActivities';
 
@@ -29,10 +30,9 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: PreferredSize(
-        preferredSize:const Size.fromHeight(90.0),
-        child: AppBar(
-          backgroundColor: Colors.white,
-          elevation: 0.0,
+        preferredSize: const Size.fromHeight(90.0),
+        child: MyAppBar(
+          centerTitle: false,
           leading: CustomIcon(
             onTap: () {
               Navigator.pushNamed(context, ChatPage.id, arguments: userEmail);
@@ -64,7 +64,7 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
+              padding: EdgeInsets.symmetric(horizontal: 16),
               child: GestureDetector(
                 onTap: () {
                   Navigator.push(
