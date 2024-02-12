@@ -1,6 +1,5 @@
-import 'package:diabetes/views/add_appointments.dart';
+import 'package:diabetes/views/Activities.dart';
 import 'package:diabetes/views/home_page.dart';
-import 'package:diabetes/views/profile_screen.dart';
 import 'package:diabetes/views/show_appintment.dart';
 import 'package:diabetes/views/social_screen.dart';
 import 'package:diabetes/views/barcode.dart';
@@ -75,7 +74,7 @@ class _HomeState extends State<Home> {
                       minWidth: 40,
                       onPressed: () {
                         setState(() {
-                          currentScreen = Container();
+                          currentScreen = const Activities();
                           _currentIndex = 0;
                         });
                       },
@@ -83,12 +82,12 @@ class _HomeState extends State<Home> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Icon(
-                            Icons.wechat,
+                            Icons.local_activity,
                             color:
                                 _currentIndex == 0 ? Colors.blue : Colors.grey,
                           ),
                           Text(
-                            'شات بوت',
+                            'الانشطه',
                             style: TextStyle(
                               color: _currentIndex == 0
                                   ? Colors.blue
@@ -110,7 +109,7 @@ class _HomeState extends State<Home> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Icon(
-                            Icons.home,
+                            Icons.analytics_outlined,
                             color:
                                 _currentIndex == 2 ? Colors.blue : Colors.grey,
                           ),
