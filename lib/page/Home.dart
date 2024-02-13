@@ -1,5 +1,6 @@
 import 'package:diabetes/views/Activities.dart';
 import 'package:diabetes/views/home_page.dart';
+import 'package:diabetes/views/my_bot.dart';
 import 'package:diabetes/views/show_appintment.dart';
 import 'package:diabetes/views/social_screen.dart';
 import 'package:diabetes/views/barcode.dart';
@@ -143,6 +144,7 @@ class _HomeState extends State<Home> {
                           Text(
                             'توقيتات',
                             style: TextStyle(
+                              fontSize: 10,
                               color: _currentIndex == 3
                                   ? Colors.blue
                                   : Colors.grey,
@@ -151,11 +153,39 @@ class _HomeState extends State<Home> {
                         ],
                       ),
                     ),
+                    // MaterialButton(
+                    //   minWidth: 30,
+                    //   onPressed: () {
+                    //     setState(() {
+                    //       currentScreen = Barcode();
+                    //       _currentIndex = 5;
+                    //     });
+                    //   },
+                    //   child: Column(
+                    //     mainAxisAlignment: MainAxisAlignment.center,
+                    //     children: [
+                    //       Icon(
+                    //         FontAwesomeIcons.camera,
+                    //         color:
+                    //             _currentIndex == 5 ? Colors.blue : Colors.grey,
+                    //       ),
+                    //       Text(
+                    //         'باركود',
+                    //         style: TextStyle(
+                    //           color: _currentIndex == 5
+                    //               ? Colors.blue
+                    //               : Colors.grey,
+                    //         ),
+                    //       ),
+                    //     ],
+                    //   ),
+                    // ),
+
                     MaterialButton(
                       minWidth: 30,
                       onPressed: () {
                         setState(() {
-                          currentScreen = Barcode();
+                          currentScreen = const MyBot();
                           _currentIndex = 5;
                         });
                       },
@@ -163,13 +193,14 @@ class _HomeState extends State<Home> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Icon(
-                            FontAwesomeIcons.camera,
+                            Icons.wechat,
                             color:
                                 _currentIndex == 5 ? Colors.blue : Colors.grey,
                           ),
                           Text(
-                            'باركود',
+                            'جلوكوبوت',
                             style: TextStyle(
+                              fontSize: 10,
                               color: _currentIndex == 5
                                   ? Colors.blue
                                   : Colors.grey,

@@ -99,7 +99,7 @@ class _MyWidgetState extends State<MyWidget> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(FontAwesomeIcons.walking,size: 20,),
+            // const Icon(FontAwesomeIcons.walking,size: 20,),
             Text(
               _steps,
               style: const TextStyle(fontSize: 25),
