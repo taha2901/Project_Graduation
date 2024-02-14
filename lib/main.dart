@@ -1,4 +1,5 @@
 import 'package:diabetes/cubits/auth_cubit/auth_cubit.dart';
+import 'package:diabetes/cubits/chat_cubit/chat_cubit.dart';
 import 'package:diabetes/page/Home.dart';
 import 'package:diabetes/theme/light_theme.dart';
 import 'package:diabetes/views/DoctorReservation.dart';
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => AuthCubit()),
+        BlocProvider(create: (context) => ChatCubit()),
       ],
       child: MaterialApp(
         theme: lightMode,

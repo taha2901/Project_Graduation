@@ -1,3 +1,4 @@
+import 'package:diabetes/cubits/chat_cubit/chat_cubit.dart';
 import 'package:diabetes/views/chat_page.dart';
 import 'package:diabetes/views/profile_screen.dart';
 import 'package:diabetes/widgets/custom_app_bar_taha.dart';
@@ -9,6 +10,7 @@ import 'package:diabetes/widgets/ticks_of_best_doctors.dart';
 import 'package:diabetes/widgets/ticks_of_heart.dart';
 import 'package:diabetes/widgets/two_square_container.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomePage extends StatefulWidget {
@@ -35,6 +37,7 @@ class _HomePageState extends State<HomePage> {
           centerTitle: false,
           leading: CustomIcon(
             onTap: () {
+              BlocProvider.of<ChatCubit>(context).getMessages();
               Navigator.pushNamed(context, ChatPage.id, arguments: userEmail);
             },
             icon: FontAwesomeIcons.facebookMessenger,

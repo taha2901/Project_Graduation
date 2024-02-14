@@ -1,7 +1,7 @@
 import 'package:diabetes/cubits/auth_cubit/auth_cubit.dart';
+import 'package:diabetes/cubits/chat_cubit/chat_cubit.dart';
 import 'package:diabetes/helper/show-snack-bar.dart';
 import 'package:diabetes/page/Home.dart';
-import 'package:diabetes/views/chat_page.dart';
 import 'package:diabetes/views/register.dart';
 import 'package:diabetes/widgets/custom_button.dart';
 import 'package:diabetes/widgets/custom_text_field.dart';

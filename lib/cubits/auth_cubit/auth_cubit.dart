@@ -13,7 +13,7 @@ class AuthCubit extends Cubit<AuthState> {
     try {
       UserCredential user = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: passWord);
-          print('Success Login');
+      print('Success Login');
       emit(LoginSuccess());
     } on FirebaseAuthException catch (ex) {
       if (ex.code == 'user-not-found') {
@@ -26,7 +26,6 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-
   Future<void> registerUser(
       {required String email, required String passWord}) async {
     emit(RegisterLoaded());
@@ -38,8 +37,7 @@ class AuthCubit extends Cubit<AuthState> {
       if (ex.code == 'weak-password') {
         emit(RegisterFailur(errMessage: 'weak password'));
       } else if (ex.code == 'email-already-in-use') {
-        emit(RegisterFailur(
-            errMessage: 'email already in use'));
+        emit(RegisterFailur(errMessage: 'email already in use'));
       }
     } catch (e) {
       emit(RegisterFailur(errMessage: 'something went wrong'));
