@@ -27,7 +27,6 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.white,
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -36,15 +35,15 @@ class _RegisterPageState extends State<RegisterPage> {
       ),
       body: BlocConsumer<AuthCubit, AuthState>(
         listener: (context, state) {
-           if (state is RegisterLoaded) {
-          isLoading = true;
-        } else if (state is RegisterSuccess) {
-          Navigator.pushNamed(context, Home.id, arguments: email);
-          isLoading = false;
-        } else if (state is RegisterFailur) {
-          showSnackBar(context, state.errMessage);
-          isLoading = false;
-        }
+          if (state is RegisterLoaded) {
+            isLoading = true;
+          } else if (state is RegisterSuccess) {
+            Navigator.pushNamed(context, Home.id, arguments: email);
+            isLoading = false;
+          } else if (state is RegisterFailur) {
+            showSnackBar(context, state.errMessage);
+            isLoading = false;
+          }
         },
         builder: (context, state) {
           return ModalProgressHUD(
@@ -53,7 +52,6 @@ class _RegisterPageState extends State<RegisterPage> {
               child: Form(
                 key: _formKey,
                 child: Column(
-                  // crossAxisAlignment: CrossAxisAlignment.end,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(
@@ -76,16 +74,6 @@ class _RegisterPageState extends State<RegisterPage> {
                     const SizedBox(
                       height: 32,
                     ),
-                    // const Padding(
-                    //   padding: EdgeInsets.only(right: 18),
-                    //   child: Text(
-                    //     'رقم التلفون /او الايميل',
-                    //     style: TextStyle(
-                    //       fontSize: 16,
-                    //       fontWeight: FontWeight.w400,
-                    //     ),
-                    //   ),
-                    // ),
                     const SizedBox(
                       height: 16,
                     ),
@@ -104,16 +92,6 @@ class _RegisterPageState extends State<RegisterPage> {
                     const SizedBox(
                       height: 16,
                     ),
-                    // const Padding(
-                    //   padding: EdgeInsets.only(right: 18),
-                    //   child: Text(
-                    //     'كلمة السر',
-                    //     style: TextStyle(
-                    //       fontSize: 16,
-                    //       fontWeight: FontWeight.w400,
-                    //     ),
-                    //   ),
-                    // ),
                     const SizedBox(
                       height: 16,
                     ),
@@ -144,19 +122,6 @@ class _RegisterPageState extends State<RegisterPage> {
                     const SizedBox(
                       height: 32,
                     ),
-                    // const Padding(
-                    //   padding: EdgeInsets.only(right: 18),
-                    //   child: Text(
-                    //     'تأكيد كلمة السر',
-                    //     style: TextStyle(
-                    //       fontSize: 14,
-                    //       fontWeight: FontWeight.w400,
-                    //     ),
-                    //   ),
-                    // ),
-                    // const SizedBox(
-                    //   height: 8,
-                    // ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 18),
                       child: CustomTextField(
@@ -209,28 +174,8 @@ class _RegisterPageState extends State<RegisterPage> {
                         textcolor: Colors.white,
                         onTap: () async {
                           if (_formKey.currentState!.validate()) {
-                            setState(() {
-                              isLoading = true;
-                            });
-                            try {
-                              await registerUser();
-                              Navigator.pop(context);
-                            } on FirebaseAuthException catch (ex) {
-                              if (ex.code == 'weak-password') {
-                                showSnackBar(context, 'كلمة سر ضعيفة');
-                              } else if (ex.code == 'email-already-in-use') {
-                                showSnackBar(
-                                    context, 'البريد الإلكتروني مستخدم بالفعل');
-                              } else {
-                                showSnackBar(context, 'حدث خطأ ما');
-                              }
-                            } catch (ex) {
-                              showSnackBar(context, 'حدث خطأ ما');
-                            } finally {
-                              setState(() {
-                                isLoading = false;
-                              });
-                            }
+                            BlocProvider.of<AuthCubit>(context).registerUser(
+                                email: email!, passWord: password!);
                           }
                         },
                       ),
