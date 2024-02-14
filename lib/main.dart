@@ -1,3 +1,4 @@
+import 'package:diabetes/cubits/auth_cubit/auth_cubit.dart';
 import 'package:diabetes/page/Home.dart';
 import 'package:diabetes/theme/light_theme.dart';
 import 'package:diabetes/views/DoctorReservation.dart';
@@ -14,6 +15,7 @@ import 'package:diabetes/widgets/confirm_reservation.dart';
 import 'package:diabetes/widgets/notification_details.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -29,29 +31,35 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: lightMode,
-      routes: {
-        LoginPage.id: (context) => const LoginPage(),
-        AddPerson.id: (context) => const AddPerson(),
-        DoctorReservation.id: (context) => const DoctorReservation(),
-        ConfirmReservation.id: (context) => const ConfirmReservation(),
-        Home.id: (context) => const Home(),
-        ScreenOfPageView.id: (context) => PageView(),
-        ChatPage.id: (context) => ChatPage(),
-        AddPerson.id: (context) => const AddPerson(),
-        HomePage.id: (context) {
-          return HomePage(
-              userEmaill: ModalRoute.of(context)!.settings.arguments as String);
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => AuthCubit()),
+      ],
+      child: MaterialApp(
+        theme: lightMode,
+        routes: {
+          LoginPage.id: (context) => const LoginPage(),
+          AddPerson.id: (context) => const AddPerson(),
+          DoctorReservation.id: (context) => const DoctorReservation(),
+          ConfirmReservation.id: (context) => const ConfirmReservation(),
+          Home.id: (context) => const Home(),
+          ScreenOfPageView.id: (context) => PageView(),
+          ChatPage.id: (context) => ChatPage(),
+          AddPerson.id: (context) => const AddPerson(),
+          HomePage.id: (context) {
+            return HomePage(
+                userEmaill:
+                    ModalRoute.of(context)!.settings.arguments as String);
+          },
+          PersonalDetails.id: (context) => const PersonalDetails(),
+          MedicalRecords.id: (context) => const MedicalRecords(),
+          NotificationDetials.id: (context) => const NotificationDetials(),
+          StoreFavourities.id: (context) => const StoreFavourities(),
+          AddAppointments.id: (context) => const AddAppointments(),
         },
-        PersonalDetails.id: (context) => const PersonalDetails(),
-        MedicalRecords.id: (context) => const MedicalRecords(),
-        NotificationDetials.id: (context) => const NotificationDetials(),
-        StoreFavourities.id: (context) => const StoreFavourities(),
-        AddAppointments.id: (context) => const AddAppointments(),
-      },
-      debugShowCheckedModeBanner: false,
-      home: ScreenOfPageView(),
+        debugShowCheckedModeBanner: false,
+        home: ScreenOfPageView(),
+      ),
     );
   }
 }

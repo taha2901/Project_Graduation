@@ -50,12 +50,8 @@ class _ChatPageState extends State<ChatPage> {
                     itemCount: messagesList.length,
                     itemBuilder: (context, index) {
                       return messagesList[index].id == email
-                          ? ChatBuble(
-                              message: messagesList[index],
-                            )
+                          ? ChatBuble(message: messagesList[index])
                           : ChatBubleMyFriend(message: messagesList[index]);
-
-                      // return ChatBuble(message: messagesList[index]);
                     },
                   ),
                 ),
@@ -84,7 +80,7 @@ class _ChatPageState extends State<ChatPage> {
             ),
           );
         } else {
-          return const Text('Lopading....');
+          return const Center(child: CircularProgressIndicator());
         }
       },
     );

@@ -5,8 +5,8 @@ import '../constants/constant.dart';
 
 class ChatBuble extends StatelessWidget {
    const ChatBuble({
-    Key? key, required this.message,
-  }) : super(key: key);
+    super.key, required this.message,
+  });
   final Message message;
   @override
   Widget build(BuildContext context) {
