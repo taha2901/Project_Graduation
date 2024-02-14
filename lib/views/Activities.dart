@@ -4,8 +4,8 @@ import 'package:diabetes/widgets/Pressure.dart';
 import 'package:diabetes/widgets/Weight.dart';
 import 'package:flutter/material.dart';
 class Activities extends StatelessWidget {
-  const Activities({Key? key}) : super(key: key);
-
+  const Activities({super.key});
+static String id = 'Activities';
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(

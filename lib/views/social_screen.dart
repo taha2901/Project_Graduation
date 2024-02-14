@@ -4,7 +4,7 @@ import 'package:diabetes/widgets/PostsList.dart';
 
 class SocialScreen extends StatelessWidget {
   const SocialScreen({super.key});
-
+static String id = 'social';
   @override
   Widget build(BuildContext context) {
     return Scaffold(

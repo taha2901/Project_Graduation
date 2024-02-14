@@ -7,6 +7,7 @@ import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 class Barcode extends StatefulWidget {
   @override
   _BarcodeState createState() => _BarcodeState();
+  static String id = 'Barcode';
 }
 
 class _BarcodeState extends State<Barcode> {

@@ -1,7 +1,7 @@
 import 'package:diabetes/cubits/auth_cubit/auth_cubit.dart';
 import 'package:diabetes/helper/show-snack-bar.dart';
 import 'package:diabetes/page/Home.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:diabetes/views/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -38,7 +38,7 @@ class _RegisterPageState extends State<RegisterPage> {
           if (state is RegisterLoaded) {
             isLoading = true;
           } else if (state is RegisterSuccess) {
-            Navigator.pushNamed(context, Home.id, arguments: email);
+            Navigator.pushNamed(context, LoginPage.id, arguments: email);
             isLoading = false;
           } else if (state is RegisterFailur) {
             showSnackBar(context, state.errMessage);
@@ -224,11 +224,5 @@ class _RegisterPageState extends State<RegisterPage> {
         },
       ),
     );
-  }
-
-  Future<void> registerUser() async {
-    await FirebaseAuth.instance
-        .createUserWithEmailAndPassword(email: email!, password: password!);
-    // يمكنك إضافة المزيد من الإجراءات هنا في حال نجاح عملية التسجيل
   }
 }

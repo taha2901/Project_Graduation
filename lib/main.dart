@@ -2,16 +2,21 @@ import 'package:diabetes/cubits/auth_cubit/auth_cubit.dart';
 import 'package:diabetes/cubits/chat_cubit/chat_cubit.dart';
 import 'package:diabetes/page/Home.dart';
 import 'package:diabetes/theme/light_theme.dart';
+import 'package:diabetes/views/Activities.dart';
 import 'package:diabetes/views/DoctorReservation.dart';
 import 'package:diabetes/views/add_appointments.dart';
 import 'package:diabetes/views/add_person.dart';
+import 'package:diabetes/views/barcode.dart';
 import 'package:diabetes/views/chat_page.dart';
 import 'package:diabetes/views/home_page.dart';
 import 'package:diabetes/views/login.dart';
 import 'package:diabetes/views/medical_recoer.dart';
 import 'package:diabetes/views/modify_personal_detail.dart';
+import 'package:diabetes/views/my_bot.dart';
 import 'package:diabetes/views/pageview.dart';
+import 'package:diabetes/views/social_screen.dart';
 import 'package:diabetes/views/store_favourite.dart';
+import 'package:diabetes/widgets/bottom_nav_bar.dart';
 import 'package:diabetes/widgets/confirm_reservation.dart';
 import 'package:diabetes/widgets/notification_details.dart';
 import 'package:flutter/material.dart';
@@ -42,12 +47,16 @@ class MyApp extends StatelessWidget {
         routes: {
           LoginPage.id: (context) => const LoginPage(),
           AddPerson.id: (context) => const AddPerson(),
+          BottomNavBar.id: (context) => BottomNavBar(),
           DoctorReservation.id: (context) => const DoctorReservation(),
           ConfirmReservation.id: (context) => const ConfirmReservation(),
-          Home.id: (context) => const Home(),
+          Barcode.id: (context) =>  Barcode(),
           ScreenOfPageView.id: (context) => PageView(),
           ChatPage.id: (context) => ChatPage(),
           AddPerson.id: (context) => const AddPerson(),
+          Activities.id: (context) => const Activities(),
+          SocialScreen.id: (context) => const SocialScreen(),
+          MyBot.id:(context) => const MyBot(),
           HomePage.id: (context) {
             return HomePage(
                 userEmaill:

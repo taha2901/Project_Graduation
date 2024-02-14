@@ -1,11 +1,10 @@
 import 'package:diabetes/cubits/auth_cubit/auth_cubit.dart';
-import 'package:diabetes/cubits/chat_cubit/chat_cubit.dart';
 import 'package:diabetes/helper/show-snack-bar.dart';
 import 'package:diabetes/page/Home.dart';
 import 'package:diabetes/views/register.dart';
+import 'package:diabetes/widgets/bottom_nav_bar.dart';
 import 'package:diabetes/widgets/custom_button.dart';
 import 'package:diabetes/widgets/custom_text_field.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -31,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
         if (state is LoginLoaded) {
           isLoading = true;
         } else if (state is LoginSuccess) {
-          Navigator.pushNamed(context, Home.id, arguments: email);
+          Navigator.pushNamed(context, BottomNavBar.id, arguments: email);
           isLoading = false;
         } else if (state is LoginFailur) {
           showSnackBar(context, state.errMessage);
@@ -178,10 +177,5 @@ class _LoginPageState extends State<LoginPage> {
         );
       },
     );
-  }
-
-  Future<void> loginUser() async {
-    UserCredential user = await FirebaseAuth.instance
-        .signInWithEmailAndPassword(email: email!, password: passWord!);
   }
 }

@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 
 class MyBot extends StatefulWidget {
   const MyBot({super.key});
-
+static String id = 'GlocuBot';
   @override
   State<MyBot> createState() => _MyBotState();
 }
