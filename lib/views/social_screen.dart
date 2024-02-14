@@ -3,7 +3,7 @@ import 'package:diabetes/widgets/PersonsList.dart';
 import 'package:diabetes/widgets/PostsList.dart';
 
 class SocialScreen extends StatelessWidget {
-  const SocialScreen({Key? key}) : super(key: key);
+  const SocialScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +40,7 @@ class SocialScreen extends StatelessWidget {
       body: Container(
         margin: const EdgeInsets.only(right: 5, left: 5),
         child: const CustomScrollView(
+          physics: BouncingScrollPhysics(),
           slivers: [
             SliverToBoxAdapter(
               child: SizedBox(
@@ -52,7 +53,7 @@ class SocialScreen extends StatelessWidget {
                 height: 20,
               ),
             ),
-            SliverToBoxAdapter(child: PostsList()),
+            PostsList(),
           ],
         ),
       ),
